@@ -839,14 +839,16 @@ public class FreshDownloadView extends View {
 
         protected FreshDownloadStatus(Parcel in) {
             super(in);
-            int tmpStatus = in.readInt();
-            this.status = tmpStatus == -1 ? null : STATUS.values()[tmpStatus];
-            this.progress = in.readFloat();
-            this.radius = in.readFloat();
-            this.circular_color = in.readInt();
-            this.circular_progress_color = in.readInt();
-            this.circular_width = in.readFloat();
-            this.mProgressTextSize = in.readFloat();
+            if (in)!= null {
+                int tmpStatus = in.readInt();
+                this.status = tmpStatus == -1 ? null : STATUS.values()[tmpStatus];
+                this.progress = in.readFloat();
+                this.radius = in.readFloat();
+                this.circular_color = in.readInt();
+                this.circular_progress_color = in.readInt();
+                this.circular_width = in.readFloat();
+                this.mProgressTextSize = in.readFloat();
+            }
         }
 
         public static final Creator<FreshDownloadStatus> CREATOR = new Creator<FreshDownloadStatus>() {
